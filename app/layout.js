@@ -20,6 +20,7 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://portfolio-hassan-9211.vercel.app"),
   title: "Hassan — Full-Stack Developer & Solo Founder",
   description:
     "Portfolio of Hassan, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
