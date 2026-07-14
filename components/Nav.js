@@ -36,7 +36,7 @@ export default function Nav() {
           href="#top"
           className="font-heading text-lg font-semibold text-text-primary"
         >
-          Hassan
+          Hassan Shafiq
         </a>
 
         <ul className="hidden items-center gap-8 font-mono text-xs text-text-dim md:flex">

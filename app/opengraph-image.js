@@ -75,13 +75,13 @@ export default function OpengraphImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 144,
+            fontSize: 108,
             fontWeight: 700,
             color: "#EC4899",
             letterSpacing: -2,
           }}
         >
-          Hassan
+          Hassan Shafiq
         </div>
 
         <div

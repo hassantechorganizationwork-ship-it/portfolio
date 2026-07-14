@@ -17,7 +17,7 @@ export default function About() {
               <div className="relative h-full w-full overflow-hidden rounded-full bg-background">
                 <Image
                   src="/hassan.png"
-                  alt="Portrait of Hassan"
+                  alt="Portrait of Hassan Shafiq"
                   fill
                   sizes="(min-width: 768px) 280px, 224px"
                   className="object-cover"

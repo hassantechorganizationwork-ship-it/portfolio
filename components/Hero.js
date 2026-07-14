@@ -35,13 +35,13 @@ export default function Hero() {
         animate="visible"
         custom={0.1}
         variants={rise}
-        className="gradient-text font-heading text-6xl font-bold leading-[1.05] sm:text-7xl md:text-8xl lg:text-[90px]"
+        className="gradient-text font-heading text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl lg:text-[76px]"
         style={{
           filter:
             "drop-shadow(0 0 50px rgba(236,72,153,0.35)) drop-shadow(0 0 90px rgba(124,58,237,0.25))",
         }}
       >
-        Hassan
+        Hassan Shafiq
       </motion.h1>
 
       <motion.p

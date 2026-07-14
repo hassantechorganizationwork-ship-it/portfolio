@@ -7,7 +7,14 @@ const PROJECTS = [
     tag: "Flagship",
     title: "Posify",
     outcome:
-      "Offline-first desktop POS built solo from the ground up: a client portal (portal.posify.pk), custom role-based permissions, LAN sync (Phase 1), and JWT-secured cloud sync.",
+      "Offline-first desktop POS built solo from the ground up for Pakistani SMBs.",
+    features: [
+      "Client portal at portal.posify.pk",
+      "Custom role-based permissions system",
+      "LAN sync (Phase 1)",
+      "JWT-secured cloud sync",
+      "Native Rust layer under Tauri, built end-to-end solo",
+    ],
     stack: ["Tauri 2.0", "Rust", "React", "TypeScript", "SQLite", "Supabase"],
     href: "https://posify.pk",
   },
@@ -15,7 +22,13 @@ const PROJECTS = [
     tag: "Client",
     title: "Safa Al Ibda",
     outcome:
-      "Bilingual marketing site for a Saudi Arabia–based electronics repair business — bilingual SEO, JSON-LD structured data, custom domain, indexed and verified on Google Search Console.",
+      "Bilingual marketing site for a Saudi Arabia–based electronics repair business.",
+    features: [
+      "Bilingual (Arabic/English) content and SEO",
+      "JSON-LD structured data for rich search results",
+      "Custom domain setup",
+      "Indexed and verified on Google Search Console",
+    ],
     stack: ["React", "Vite", "Tailwind CSS"],
     href: "https://safaalibda.com",
   },
@@ -23,7 +36,13 @@ const PROJECTS = [
     tag: "Marketplace",
     title: "Home Chef (under development)",
     outcome:
-      "Flutter-based home-cooked food marketplace with Supabase auth, real-time buyer-seller chat, and a Next.js admin panel for managing listings and orders.",
+      "Flutter-based home-cooked food marketplace connecting home cooks with buyers.",
+    features: [
+      "Supabase authentication",
+      "Real-time buyer-seller chat",
+      "Next.js admin panel for listings and orders",
+      "Cross-platform mobile app built with Flutter",
+    ],
     stack: ["Flutter", "Supabase", "Next.js"],
     href: "https://homechef-web.netlify.app",
   },

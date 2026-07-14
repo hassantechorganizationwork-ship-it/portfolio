@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { Check } from "lucide-react";
 
 export default function ProjectCard({ project }) {
   const ref = useRef(null);
@@ -57,6 +58,20 @@ export default function ProjectCard({ project }) {
         <p className="mt-3 text-sm leading-relaxed text-text-dim sm:text-base">
           {project.outcome}
         </p>
+        <ul className="mt-4 space-y-2">
+          {project.features.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-start gap-2 text-sm text-text-dim"
+            >
+              <Check
+                className="mt-0.5 h-3.5 w-3.5 shrink-0 text-green"
+                strokeWidth={2.5}
+              />
+              {feature}
+            </li>
+          ))}
+        </ul>
         <ul className="mt-5 flex flex-wrap gap-2 font-mono text-xs text-text-dim">
           {project.stack.map((tech) => (
             <li

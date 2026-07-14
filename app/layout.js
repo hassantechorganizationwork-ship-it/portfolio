@@ -21,20 +21,20 @@ const inter = Inter({
 
 export const metadata = {
   metadataBase: new URL("https://portfolio-hassan-9211.vercel.app"),
-  title: "Hassan — Full-Stack Developer & Solo Founder",
+  title: "Hassan Shafiq — Full-Stack Developer & Solo Founder",
   description:
-    "Portfolio of Hassan, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
+    "Portfolio of Hassan Shafiq, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
   openGraph: {
-    title: "Hassan — Full-Stack Developer & Solo Founder",
+    title: "Hassan Shafiq — Full-Stack Developer & Solo Founder",
     description:
-      "Portfolio of Hassan, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
+      "Portfolio of Hassan Shafiq, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hassan — Full-Stack Developer & Solo Founder",
+    title: "Hassan Shafiq — Full-Stack Developer & Solo Founder",
     description:
-      "Portfolio of Hassan, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
+      "Portfolio of Hassan Shafiq, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
   },
 };
 
