@@ -45,7 +45,7 @@ html {
 
 .gradient-text {
   background: linear-gradient(90deg, var(--purple), var(--pink), var(--blue));
-  background-size: 200% auto;
+  background-size: 100% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

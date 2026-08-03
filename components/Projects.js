@@ -46,6 +46,21 @@ const PROJECTS = [
     stack: ["Flutter", "Supabase", "Next.js"],
     href: "https://homechef-web.netlify.app",
   },
+  {
+    tag: "Client",
+    title: "Dove Inn Hotel",
+    outcome:
+      "Full hotel booking website for a boutique hotel in Sharaqpur Sharif, Lahore.",
+    features: [
+      "Manager/admin portal",
+      "Guest authentication",
+      "Room booking flow with a live currency converter",
+      "Amenities management",
+      "WhatsApp inquiry integration and photo gallery",
+    ],
+    stack: ["Next.js 14", "Supabase", "Tailwind CSS"],
+    href: "https://doveinn-five.vercel.app/",
+  },
 ];
 
 export default function Projects() {
@@ -54,7 +69,7 @@ export default function Projects() {
       <Reveal>
         <SectionHeading label="Work" />
       </Reveal>
-      <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {PROJECTS.map((project) => (
           <Reveal key={project.title}>
             <ProjectCard project={project} />

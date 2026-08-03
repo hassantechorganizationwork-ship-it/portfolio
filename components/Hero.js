@@ -35,7 +35,7 @@ export default function Hero() {
         animate="visible"
         custom={0.1}
         variants={rise}
-        className="gradient-text font-heading text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl lg:text-[76px]"
+        className="gradient-text font-heading text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[76px]"
         style={{
           filter:
             "drop-shadow(0 0 50px rgba(236,72,153,0.35)) drop-shadow(0 0 90px rgba(124,58,237,0.25))",
