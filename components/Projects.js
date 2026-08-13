@@ -1,81 +1,62 @@
-import Reveal from "./Reveal";
+import Reveal, { Stagger } from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import ProjectCard from "./ProjectCard";
 
 const PROJECTS = [
   {
-    tag: "Flagship",
-    title: "Posify",
-    outcome:
-      "Offline-first desktop POS built solo from the ground up for Pakistani SMBs.",
-    features: [
-      "Client portal at portal.posify.pk",
-      "Custom role-based permissions system",
-      "LAN sync (Phase 1)",
-      "JWT-secured cloud sync",
-      "Native Rust layer under Tauri, built end-to-end solo",
+    name: "Posify",
+    description:
+      "Offline-first desktop POS for small and medium businesses, built end-to-end solo. Includes a client web portal, role-based permissions, LAN sync, and secure cloud sync.",
+    stack: [
+      "Next.js",
+      "React",
+      "Tauri",
+      "Rust",
+      "TypeScript",
+      "SQLite",
+      "Supabase",
     ],
-    stack: ["Tauri 2.0", "Rust", "React", "TypeScript", "SQLite", "Supabase"],
     href: "https://posify.pk",
   },
   {
-    tag: "Client",
-    title: "Safa Al Ibda",
-    outcome:
-      "Bilingual marketing site for a Saudi Arabia–based electronics repair business.",
-    features: [
-      "Bilingual (Arabic/English) content and SEO",
-      "JSON-LD structured data for rich search results",
-      "Custom domain setup",
-      "Indexed and verified on Google Search Console",
-    ],
+    name: "Dove Inn Hotel",
+    description:
+      "Full hotel booking website with a room booking flow, guest accounts, admin management portal, live currency converter, and WhatsApp inquiry integration.",
+    stack: ["Next.js", "Supabase", "Tailwind CSS"],
+    href: "https://doveinn-five.vercel.app/",
+  },
+  {
+    name: "Safa Al Ibda",
+    description:
+      "Bilingual marketing website for a Saudi-based electronics repair business, with SEO, structured data, and Google Search Console verification.",
     stack: ["React", "Vite", "Tailwind CSS"],
     href: "https://safaalibda.com",
   },
   {
-    tag: "Marketplace",
-    title: "Home Chef (under development)",
-    outcome:
-      "Flutter-based home-cooked food marketplace connecting home cooks with buyers.",
-    features: [
-      "Supabase authentication",
-      "Real-time buyer-seller chat",
-      "Next.js admin panel for listings and orders",
-      "Cross-platform mobile app built with Flutter",
-    ],
+    name: "Home Chef",
+    description:
+      "Flutter-based home-cooked food marketplace with real-time buyer-seller chat, Supabase auth, and a Next.js admin panel.",
     stack: ["Flutter", "Supabase", "Next.js"],
     href: "https://homechef-web.netlify.app",
-  },
-  {
-    tag: "Client",
-    title: "Dove Inn Hotel",
-    outcome:
-      "Full hotel booking website for a boutique hotel in Sharaqpur Sharif, Lahore.",
-    features: [
-      "Manager/admin portal",
-      "Guest authentication",
-      "Room booking flow with a live currency converter",
-      "Amenities management",
-      "WhatsApp inquiry integration and photo gallery",
-    ],
-    stack: ["Next.js 14", "Supabase", "Tailwind CSS"],
-    href: "https://doveinn-five.vercel.app/",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="work" className="mx-auto max-w-5xl px-6 py-28 sm:px-10">
-      <Reveal>
-        <SectionHeading label="Work" />
-      </Reveal>
-      <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-        {PROJECTS.map((project) => (
-          <Reveal key={project.title}>
-            <ProjectCard project={project} />
-          </Reveal>
-        ))}
-      </div>
+    <section id="work" className="section mx-auto max-w-6xl px-6 lg:px-10">
+      <Stagger>
+        <Reveal>
+          <SectionHeading num="02" title="Selected Work" />
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <Reveal key={project.name} className="h-full">
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
+      </Stagger>
     </section>
   );
 }

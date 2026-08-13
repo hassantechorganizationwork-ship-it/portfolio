@@ -1,10 +1,15 @@
-export default function SectionHeading({ label }) {
+export default function SectionHeading({ num, title }) {
   return (
-    <div className="mx-auto flex w-fit flex-col items-center gap-3 text-center md:mx-0 md:items-start md:text-left">
-      <span className="font-mono text-xs uppercase tracking-[0.3em] text-text-dim">
-        {label}
-      </span>
-      <div className="h-1 w-full rounded-full bg-gradient-to-r from-purple via-pink to-blue" />
+    <div>
+      <div className="flex items-center gap-4">
+        <span className="font-mono text-sm text-accent">{num}</span>
+        <span className="font-mono text-sm text-text-muted">/</span>
+        <h2 className="font-heading text-2xl font-semibold tracking-[-0.02em] text-text-primary sm:text-3xl">
+          {title}
+        </h2>
+        <span className="ml-2 hidden h-px flex-1 bg-border sm:block" />
+      </div>
+      <span className="mt-3 block h-px w-24 bg-gradient-to-r from-accent to-transparent" />
     </div>
   );
 }

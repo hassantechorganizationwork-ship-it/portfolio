@@ -1,48 +1,43 @@
-import { Space_Grotesk, IBM_Plex_Mono, Inter } from "next/font/google";
+import { Sora, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+const title = "Hassan Shafiq — Full-Stack Developer";
+const description =
+  "Full-stack developer in Lahore, Pakistan. I build web applications, business software, and cross-platform apps — from client websites to offline-first business systems.";
 
 export const metadata = {
   metadataBase: new URL("https://portfolio-hassan-9211.vercel.app"),
-  title: "Hassan Shafiq — Full-Stack Developer & Solo Founder",
-  description:
-    "Portfolio of Hassan Shafiq, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
-  openGraph: {
-    title: "Hassan Shafiq — Full-Stack Developer & Solo Founder",
-    description:
-      "Portfolio of Hassan Shafiq, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hassan Shafiq — Full-Stack Developer & Solo Founder",
-    description:
-      "Portfolio of Hassan Shafiq, a full-stack developer and solo founder of Posify, an offline-first POS system for Pakistani SMBs.",
-  },
+  title,
+  description,
+  openGraph: { title, description, type: "website" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} ${inter.variable} h-full antialiased`}
+      className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} h-full`}
     >
       <body className="min-h-full bg-background text-text-primary">
         {children}

@@ -1,38 +1,39 @@
 import Image from "next/image";
-import Reveal from "./Reveal";
+import Reveal, { Stagger } from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import Stats from "./Stats";
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-6 py-28 sm:px-10">
-      <Reveal>
-        <SectionHeading label="About" />
-      </Reveal>
-
-      <div className="mt-10 grid grid-cols-1 items-center gap-12 md:grid-cols-[280px_1fr]">
+    <section id="about" className="section mx-auto max-w-6xl px-6 lg:px-10">
+      <Stagger>
         <Reveal>
-          <div className="relative mx-auto aspect-square w-56 md:w-full">
-            <div className="relative h-full w-full overflow-hidden rounded-full p-[3px]">
-              <div className="conic-ring absolute inset-0" />
+          <SectionHeading num="01" title="About" />
+        </Reveal>
+
+        <Reveal className="mt-12 flex flex-col gap-10 sm:flex-row sm:items-start">
+          <div className="relative aspect-square w-40 shrink-0 sm:w-44">
+            <div className="relative h-full w-full rounded-full p-[3px]">
+              <div className="conic-ring absolute inset-0 rounded-full" />
               <div className="relative h-full w-full overflow-hidden rounded-full bg-background">
                 <Image
                   src="/hassan.png"
                   alt="Portrait of Hassan Shafiq"
                   fill
-                  sizes="(min-width: 768px) 280px, 224px"
+                  sizes="176px"
                   className="object-cover"
-                  priority={false}
                 />
               </div>
             </div>
 
             {[
-              { angle: 0, color: "#7C3AED" },
-              { angle: 120, color: "#EC4899" },
-              { angle: 240, color: "#3B82F6" },
+              { angle: 0, color: "#10B981" },
+              { angle: 120, color: "#34D399" },
+              { angle: 240, color: "#6EE7B7" },
             ].map(({ angle, color }) => (
               <div
                 key={angle}
+                aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
                 style={{ transform: `rotate(${angle}deg)` }}
               >
@@ -49,30 +50,37 @@ export default function About() {
               </div>
             ))}
           </div>
-        </Reveal>
 
-        <Reveal>
-          <div className="glass rounded-2xl p-8 sm:p-10">
-            <p className="text-base leading-relaxed text-text-dim sm:text-lg">
-              I&apos;m a fresh{" "}
-              <span className="text-text-primary">BS Computer Science</span>{" "}
-              graduate (2022 — 2026) from the University of Lahore, and the
-              solo founder and developer behind{" "}
-              <span className="gradient-text font-medium">Posify</span>, an
-              offline-first POS desktop app for Pakistani small and medium
-              businesses, built for a market where unreliable internet makes
-              cloud-only software unreliable. I built it end-to-end solo —
-              frontend, backend, and the native Rust layer underneath Tauri.
-              Alongside Posify, I take on freelance React &amp; Next.js
-              projects, and I&apos;m currently preparing my applications for
-              an MS in Computer Science, Data Science, or Cybersecurity at{" "}
-              <span className="text-text-primary">ITU Lahore</span>, spending
-              my spare time going deeper into data science and machine
-              learning.
+          <div className="prose-measure space-y-5 text-base text-text-muted sm:text-lg">
+            <p>
+              I&apos;m a{" "}
+              <span className="text-text-primary">
+                BS Computer Science graduate
+              </span>{" "}
+              from the University of Lahore, and a full-stack developer who
+              builds web applications, business software, and cross-platform
+              mobile &amp; desktop apps.
+            </p>
+            <p>
+              I&apos;m comfortable owning a product end-to-end — from UI to
+              backend to deployment — which is how I built{" "}
+              <span className="text-text-primary">Posify</span>, an
+              offline-first POS system, entirely solo. Alongside it I run{" "}
+              <span className="text-text-primary">D Code Vibers</span>, my
+              freelance practice, delivering client sites, admin panels,
+              automated email systems, and MDX blogs.
+            </p>
+            <p>
+              Outside of client work I&apos;m going deeper into data science
+              and machine learning.
             </p>
           </div>
         </Reveal>
-      </div>
+      </Stagger>
+
+      <Stagger className="mt-14">
+        <Stats />
+      </Stagger>
     </section>
   );
 }

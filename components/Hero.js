@@ -1,89 +1,92 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+
+const HEADING = "I build software that businesses actually rely on.";
+const EASE = [0.22, 1, 0.36, 1];
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.05 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+};
 
 export default function Hero() {
-  const shouldReduceMotion = useReducedMotion();
-
-  const rise = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 28 },
-    visible: (delay = 0) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, delay, ease: "easeOut" },
-    }),
-  };
 
   return (
     <section
       id="top"
-      className="flex min-h-[100svh] flex-col items-center justify-center px-6 text-center"
+      className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-6 pb-24 pt-36 lg:px-10"
     >
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        custom={0}
-        variants={rise}
-        className="glass mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs text-text-dim"
-      >
-        <span className="pulse-dot h-2 w-2 rounded-full bg-green" />
-        Available for work
-      </motion.div>
-
-      <motion.h1
-        initial="hidden"
-        animate="visible"
-        custom={0.1}
-        variants={rise}
-        className="gradient-text font-heading text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[76px]"
+      {/* Soft emerald glow behind the heading only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-1/2 h-[520px] w-[720px] max-w-full -translate-y-1/2 rounded-full blur-3xl"
         style={{
-          filter:
-            "drop-shadow(0 0 50px rgba(236,72,153,0.35)) drop-shadow(0 0 90px rgba(124,58,237,0.25))",
+          background:
+            "radial-gradient(closest-side, rgba(16,185,129,0.16), transparent)",
         }}
-      >
-        Hassan Shafiq
-      </motion.h1>
-
-      <motion.p
-        initial="hidden"
-        animate="visible"
-        custom={0.2}
-        variants={rise}
-        className="mt-5 font-heading text-2xl font-semibold text-text-primary sm:text-3xl"
-      >
-        Full-Stack Developer &amp; Solo Founder
-      </motion.p>
-
-      <motion.p
-        initial="hidden"
-        animate="visible"
-        custom={0.3}
-        variants={rise}
-        className="mt-5 max-w-xl text-base leading-relaxed text-text-dim sm:text-lg"
-      >
-        Building offline-first software for Pakistani businesses — and the
-        occasional client site along the way.
-      </motion.p>
+      />
 
       <motion.div
+        className="relative"
+        data-reveal=""
+        variants={container}
         initial="hidden"
         animate="visible"
-        custom={0.4}
-        variants={rise}
-        className="mt-10 flex flex-col gap-4 sm:flex-row"
       >
-        <a
-          href="#work"
-          className="rounded-full bg-gradient-to-r from-purple via-pink to-blue px-8 py-3.5 font-mono text-sm font-medium text-text-primary shadow-[0_0_25px_rgba(124,58,237,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_35px_rgba(236,72,153,0.55)] active:scale-100"
+        <motion.p variants={item} data-reveal="" className="font-mono text-sm text-accent">
+          Full-Stack Developer · Lahore, Pakistan
+        </motion.p>
+
+        <motion.h1
+          variants={item} data-reveal=""
+          data-text={HEADING}
+          className="sheen relative mt-6 max-w-4xl font-heading text-[clamp(3rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.03em]"
         >
-          View my work
-        </a>
-        <a
-          href="#contact"
-          className="glass rounded-full px-8 py-3.5 font-mono text-sm font-medium text-text-primary transition-all hover:bg-white/8 hover:scale-105 active:scale-100"
+          {HEADING}
+        </motion.h1>
+
+        <motion.p
+          variants={item} data-reveal=""
+          className="prose-measure mt-8 text-lg text-text-muted"
         >
-          Get in touch
-        </a>
+          Computer Science graduate and full-stack developer specializing in
+          React, Next.js, and cross-platform apps — from client websites to
+          offline-first business software.
+        </motion.p>
+
+        <motion.div
+          variants={item} data-reveal=""
+          className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+        >
+          <a
+            href="#work"
+            className="btn rounded-md bg-accent px-7 py-3.5 text-center font-mono text-sm font-medium text-background shadow-[0_0_24px_var(--accent-glow)] hover:bg-accent-light hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]"
+          >
+            View my work
+          </a>
+          <a
+            href="#contact"
+            className="btn rounded-md border border-border px-7 py-3.5 text-center font-mono text-sm font-medium text-text-primary hover:border-accent hover:text-accent-light hover:shadow-[0_0_24px_var(--accent-glow)]"
+          >
+            Get in touch
+          </a>
+        </motion.div>
+
+        <motion.div
+          variants={item} data-reveal=""
+          className="mt-12 inline-flex w-fit items-center gap-3 rounded-full border border-border bg-surface px-4 py-2"
+        >
+          <span className="pulse-dot relative h-2 w-2 rounded-full bg-accent" />
+          <span className="font-mono text-xs text-text-muted">
+            Available for work
+          </span>
+        </motion.div>
       </motion.div>
     </section>
   );

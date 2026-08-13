@@ -1,53 +1,115 @@
-import Reveal from "./Reveal";
+import Reveal, { Stagger } from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const GROUPS = [
   {
-    title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter"],
+    label: "Frontend",
+    items: [
+      "React",
+      "Next.js (App Router)",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Flutter",
+      "HTML5 & CSS3",
+      "Responsive / mobile-first UI",
+    ],
   },
   {
-    title: "Backend & systems",
-    items: ["Rust", "Tauri 2.0", "Supabase", "SQLite", "JWT / Auth"],
+    label: "Backend & Systems",
+    items: [
+      "Rust",
+      "Tauri 2.0",
+      "Supabase",
+      "PostgreSQL",
+      "SQLite",
+      "JWT / Auth",
+      "Row Level Security (RLS)",
+      "REST API integration",
+    ],
   },
   {
-    title: "Currently learning",
+    label: "Architecture & Product",
+    items: [
+      "Offline-first architecture",
+      "Local ↔ cloud sync",
+      "LAN sync",
+      "POS system development",
+      "Role-based permissions",
+      "Inventory & transaction logic",
+      "Thermal receipt printing (CUPS)",
+      "Cross-platform desktop builds",
+    ],
+  },
+  {
+    label: "DevOps & Deployment",
+    items: [
+      "Vercel",
+      "Netlify",
+      "Git / GitHub",
+      "GitHub Actions (CI/CD)",
+      "Custom domains & DNS",
+      "Environment configuration",
+    ],
+  },
+  {
+    label: "SEO & Web",
+    items: [
+      "Technical SEO",
+      "JSON-LD structured data",
+      "Google Search Console",
+      "Bilingual websites",
+      "Meta tags, Open Graph, sitemaps",
+    ],
+  },
+  {
+    label: "Currently Learning",
     items: ["Python", "Machine Learning", "NLP", "LangChain"],
   },
   {
-    title: "Ways of working",
-    items: ["Solo end-to-end shipping", "Client project delivery", "AI-assisted dev"],
+    label: "Tools & Workflow",
+    items: [
+      "VS Code",
+      "Claude Code / AI-assisted dev",
+      "Figma",
+      "MDX",
+      "Resend + ImprovMX",
+      "End-to-end product delivery",
+      "Client project delivery",
+    ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="mx-auto max-w-5xl px-6 py-28 sm:px-10">
-      <Reveal>
-        <SectionHeading label="Skills" />
-      </Reveal>
+    <section id="skills" className="section mx-auto max-w-6xl px-6 lg:px-10">
+      <Stagger>
+        <Reveal>
+          <SectionHeading num="03" title="Skills" />
+        </Reveal>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {GROUPS.map((group) => (
-          <Reveal key={group.title}>
-            <div className="glass rounded-2xl p-6">
-              <h3 className="font-mono text-xs uppercase tracking-wide text-text-dim">
-                {group.title}
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="gradient-border glass rounded-full px-3.5 py-1.5 text-sm text-text-primary transition-colors"
-                  >
-                    {item}
-                  </span>
-                ))}
+        <dl className="mt-12 divide-y divide-border border-y border-border">
+          {GROUPS.map((group) => (
+            <Reveal key={group.label}>
+              <div className="grid grid-cols-1 gap-4 py-6 sm:grid-cols-[200px_1fr] sm:gap-8">
+                <dt className="font-mono text-sm text-accent">
+                  {group.label}
+                </dt>
+                <dd className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="chip rounded-md bg-surface px-3 py-1.5 font-mono text-xs text-text-muted"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </dd>
               </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+            </Reveal>
+          ))}
+        </dl>
+      </Stagger>
     </section>
   );
 }

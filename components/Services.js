@@ -1,52 +1,53 @@
-import { Globe, Layers, Smartphone } from "lucide-react";
-import Reveal from "./Reveal";
+import { LayoutGrid, Monitor, Smartphone } from "lucide-react";
+import Reveal, { Stagger } from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const SERVICES = [
   {
-    title: "Web apps",
-    description:
-      "React / Next.js builds, from landing pages to full dashboards.",
-    Icon: Globe,
+    title: "Web Applications",
+    description: "Fast, responsive React / Next.js sites and dashboards.",
+    Icon: Monitor,
   },
   {
-    title: "Business software",
+    title: "Business Software",
     description:
-      "POS, inventory, and internal tools tailored to how a business actually runs.",
-    Icon: Layers,
+      "POS, inventory, and internal tools built around how a business runs.",
+    Icon: LayoutGrid,
   },
   {
-    title: "Cross-platform apps",
+    title: "Cross-Platform Apps",
     description:
-      "Flutter mobile apps and Tauri (Rust-backed) desktop apps from one codebase.",
+      "Flutter mobile apps and desktop apps from a shared codebase.",
     Icon: Smartphone,
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="mx-auto max-w-5xl px-6 py-28 sm:px-10">
-      <Reveal>
-        <SectionHeading label="Services" />
-      </Reveal>
+    <section id="services" className="section mx-auto max-w-6xl px-6 lg:px-10">
+      <Stagger>
+        <Reveal>
+          <SectionHeading num="04" title="Services" />
+        </Reveal>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {SERVICES.map(({ title, description, Icon }) => (
-          <Reveal key={title}>
-            <div className="gradient-border glass h-full rounded-2xl p-7 transition-transform duration-300 hover:-translate-y-1">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-purple via-pink to-blue">
-                <Icon className="h-4.5 w-4.5 text-text-primary" strokeWidth={1.75} />
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {SERVICES.map(({ title, description, Icon }) => (
+            <Reveal key={title} className="h-full">
+              <div className="card h-full rounded-xl p-7">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-[var(--accent-glow)]">
+                  <Icon className="h-5 w-5 text-accent" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-semibold tracking-[-0.01em] text-text-primary">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                  {description}
+                </p>
               </div>
-              <h3 className="mt-5 font-heading text-lg font-semibold text-text-primary">
-                {title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-text-dim">
-                {description}
-              </p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+            </Reveal>
+          ))}
+        </div>
+      </Stagger>
     </section>
   );
 }
